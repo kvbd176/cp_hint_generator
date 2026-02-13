@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Smart CP Hint Extension",
+  "version": "4.0",
+  "description": "AI-powered competitive programming hints and solutions",
+
+  "permissions": ["activeTab", "scripting"],
+
+  "host_permissions": [
+    "http://localhost:5000/*",
+    "https://leetcode.com/*",
+    "https://codeforces.com/*",
+    "https://www.codechef.com/*",
+    "https://atcoder.jp/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/*",
+        "https://codeforces.com/*",
+        "https://atcoder.jp/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
